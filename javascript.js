@@ -1,16 +1,20 @@
+function hover(box) {
+    
+    box.addEventListener('mouseenter', () => {
+        const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        box.style.background = randomColor;
+     });
+}
 function makeGrid(size) {
 
     for (let i=0; i< size;i++){
         const container = document.querySelector("#container");
-        const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
         let row = document.createElement("div");
          container.appendChild(row).className = "row";
           for(let x=0; x<=size;x++){
               let column = document.createElement("div");
               row.appendChild(column).className = "column";
-                column.addEventListener('mouseenter', () => {
-                    column.style.background = randomColor;
-                 });
+              hover(column);
           }
       }
 }
